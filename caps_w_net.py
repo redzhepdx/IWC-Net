@@ -1,4 +1,4 @@
-from caspule_layers import *
+from capsule_layers import *
 import tensorflow as tf
 import numpy as np
 import cv2
