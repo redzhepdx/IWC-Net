@@ -6,14 +6,14 @@ from __future__ import print_function
 import numpy as np
 import tensorflow as tf
 
-from model import *
+from deep_caps_w_net import *
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
 def create_model(features, labels, mode, params):
-    encoded     = U_encoder(features["images"], params["K"])
-    decoded     = U_decoder(encoded)
-
+    encoded     = cap_U_encoder(features["images"], params["K"])
+    decoded     = cap_U_decoder(encoded)
+    
     predictions = {"reconstructed_image" : decoded,
                    "segmentation" : tf.argmax(encoded, axis=3)}
 
